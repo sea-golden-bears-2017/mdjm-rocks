@@ -1,0 +1,51 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/apprentice/mjdm-rocks/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/apprentice/mjdm-rocks/app/models/user.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/Users/apprentice/mjdm-rocks/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/apprentice/mjdm-rocks/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/mjdm-rocks/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/mjdm-rocks/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/mjdm-rocks/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/Users/apprentice/mjdm-rocks/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1508369921
+  }
+}
