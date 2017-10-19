@@ -3,7 +3,7 @@
   <% if !@warehouse %>
 
     <div class="smallItem">
-      
+
       <div id="warehouse-search">
         <%= form_tag parts_path, method: :get do %>
         <%= label_tag 'Warehouse Name:' %>&nbsp
@@ -19,10 +19,10 @@
     </div>
 
     <div class="bigItem">
-      <h1 class="inventory-header">Inventory</h1>
+      <h2 class="inventory-header">Inventory</h2>
     </div>
 
-    <div class="emptyItem"></div>
+    <div class="emptyItem"><%= link_to "Add Warehouse", new_warehouse_path, class: "new-warehouse-button" %></div>
 
   <% else %>
     <div class="smallItem">
@@ -30,9 +30,11 @@
     </div>
 
     <div class="bigItem">
-      <h1 class="inventory-header">Inventory</h1>
+      <h2 class="inventory-header">Inventory</h2>
     </div>
 
-    <div class="emptyItem"></div>
+    <div class="emptyItem">
+      <%= link_to "Add Warehouse", new_warehouse_path, class: "new-warehouse-button" %>
+    </div>
   <% end %>
 </div>

@@ -1,0 +1,11 @@
+<h2 id="warehouse-header">Add Warehouse</h2>
+<div class="add-warehouse">
+  <%= form_for @warehouse do |f| %>
+    <%= f.label "Warehouse Name: " %>
+    <%= f.text_field :name %>
+    <%= f.submit "Add" %>
+  <% end %>
+  <div id="add-warehouse-errors">
+    <%= render "shared/errors" %>
+  </div>
+</div>
