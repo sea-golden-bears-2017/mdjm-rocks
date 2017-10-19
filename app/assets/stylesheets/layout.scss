@@ -1,9 +1,11 @@
+@import 'colors';
+
 body {
   font-family: sans-serif;
 }
 
 .top-bar {
-  background-color: #0192a5
+  background-color: $turquoise;
 }
 
 #company-name{

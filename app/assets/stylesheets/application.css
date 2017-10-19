@@ -13,7 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-#top-bar {
-  background-color: $turquoise
-}
