@@ -2,6 +2,13 @@ input[type=text], input[type=password] {
   padding: 10px;
 }
 
+#login-form-div {
+  width: 30%;
+  margin: auto;
+}
+
 .form-section {
   padding: 10px;
+  float: right;
+  clear: both;
 }
