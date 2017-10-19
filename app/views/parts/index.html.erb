@@ -8,14 +8,15 @@
     <div id='search-errors' class='errors'>
       <%= render 'shared/errors' %>
     </div>
+    <h1 class="inventory-header">Inventory</h1>
   </div>
 <% else %>
+  <h1 class="inventory-header">Inventory</h1>
   <h3> <%= @warehouse.name %> </h3>
 <% end %>
 
-  <h1>Inventory</h1>
 
-<table>
+<table class="inventory-table">
   <tr>
     <th>Part Name</th>
     <th>Part Number</th>
@@ -24,7 +25,7 @@
   </tr>
   <% @parts.each do |part| %>
     <tr>
-      <td><%= part.name %></td>
+      <td class="col-1"><%= part.name %></td>
       <td><%= part.part_number %></td>
       <% if @warehouse %>
         <td><%= Part.warehouse_total(@warehouse, part) %></td>

@@ -22,7 +22,7 @@ describe SessionsController, type: :controller do
     context "when login is unsuccessful" do
       before(:each) { post :create, params: {employee_num: 12345, password: 'jazzword'} }
       it "assign an errors instance variable" do
-        expect(assigns[:errors]).to eq('Invalid username or password')
+        expect(assigns[:errors]).to eq(['Invalid password'])
       end
       it "returns ok status" do
         expect(response).to be_ok
