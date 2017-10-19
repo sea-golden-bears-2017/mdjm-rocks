@@ -32,4 +32,14 @@ describe SessionsController, type: :controller do
       end
     end
   end
+
+  describe "sessions#destroy" do
+    let!(:user) { create(:user) }
+    it "deletes a session" do
+      post :create, params: {employee_num: 12345, password: 'password'}
+      expect(session[:user_id]).to eq(user.id)
+      post :destroy
+      expect(session[:user_id]).to_not eq(user.id)
+    end
+  end
 end
