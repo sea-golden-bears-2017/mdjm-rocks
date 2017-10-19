@@ -1,9 +1,12 @@
-<% if @parts %>
+<% if !@warehouse %>
   <form action="/parts" method="get">
     <label>Warehouse Name:&nbsp</label>
     <input type="text" name="name" placeholder="ex. Austin">
     <input type="submit" value="Find">
   </form>
+<% else %>
+  <h3> <%= @warehouse.name %> </h3>
+<% end %>
 
   <h1>Inventory</h1>
 
@@ -18,33 +21,12 @@
       <tr>
         <td><%= part.name %></td>
         <td><%= part.part_number %></td>
-        <td><%= Part.overall_total(part) %></td>
+        <% if @warehouse %>
+          <td><%= Part.warehouse_total(@warehouse, part) %></td>
+        <% else %>
+          <td><%= Part.overall_total(part) %></td>
+        <% end %>
         <td><%= part.max_quantity %></td>
       </tr>
     <% end %>
   </table>
-<% end %>
-
-<% if @warehouse %>
-  <% parts = @warehouse.parts.uniq %>
-  <h3> <%= @warehouse.name %> </h3>
-
-  <h1>Inventory</h1>
-
-  <table>
-    <tr>
-      <th>Part Name</th>
-      <th>Part Number</th>
-      <th>Quantity</th>
-      <th>Max Quantity</th>
-    </tr>
-    <% parts.each do |part| %>
-      <tr>
-        <td><%= part.name %></td>
-        <td><%= part.part_number %></td>
-        <td><%= Part.warehouse_total(@warehouse, part) %></td>
-        <td><%= part.max_quantity %></td>
-      </tr>
-    <% end %>
-  </table>
-<% end %>
