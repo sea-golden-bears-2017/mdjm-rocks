@@ -1,7 +1,11 @@
 <%= form_tag sessions_path, id: "login-form" do %>
-  <%= label_tag :employee_num, "Employee Number:" %>
-  <%= text_field_tag :employee_num %>
-  <%= label_tag :password, "Password:" %>
-  <%= password_field_tag :password %>
+  <div class="form-section">
+    <%= label_tag :employee_num, "Employee Number:" %>
+    <%= text_field_tag :employee_num %>
+  </div>
+  <div class="form-section">
+    <%= label_tag :password, "Password:" %>
+    <%= password_field_tag :password %>
+  </div>
   <%= submit_tag "Login" %>
 <% end %>
