@@ -13,7 +13,7 @@
       <img src="/logo2.png" height="70">
       <h1 id="company-name">Rutherford Rocket Labs</h1>
       <% if session[:user_id] %>
-        <%= form_tag sessions_path, method: :delete do %>
+        <%= form_tag session_path(session[:user_id]), method: :delete do %>
           <%= submit_tag 'Logout', id: 'logout' %>
         <% end %>
       <% end %>

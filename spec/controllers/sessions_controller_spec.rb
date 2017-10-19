@@ -38,7 +38,7 @@ describe SessionsController, type: :controller do
     it "deletes a session" do
       post :create, params: {employee_num: 12345, password: 'password'}
       expect(session[:user_id]).to eq(user.id)
-      post :destroy
+      post :destroy, params: {id: user.id}
       expect(session[:user_id]).to_not eq(user.id)
     end
   end
