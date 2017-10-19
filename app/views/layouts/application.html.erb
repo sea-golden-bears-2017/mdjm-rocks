@@ -12,7 +12,9 @@
     <div class="top-bar">
       <img src="/logo2.png" height="70">
       <h1 id="company-name">Rutherford Rocket Labs</h1>
-      <a href="#" id="logout">Logout</a>
+      <%= form_tag sessions_path, method: :delete do %>
+        <%= submit_tag 'Logout', id: 'logout' %>
+      <% end %>
     </div>
     <%= yield %>
   </body>
