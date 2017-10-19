@@ -64,6 +64,10 @@
 
   .emptyItem {
     flex: 1;
+    margin-top: 20px;
+    a {
+      margin-left: 200px;
+    }
   }
 
   .inventory-header {
