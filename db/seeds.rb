@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+10.times do
+  Part.create(part_number: Faker::Number.number(5), name: Faker::Pokemon.move, max_quantity: 50)
+  Warehouse.create(name: Faker::Address.city)
+end
+
+3.times do
+  part = Part.find 1
+  warehouse = Warehouse.find 1
+  warehouse.parts << part
+end

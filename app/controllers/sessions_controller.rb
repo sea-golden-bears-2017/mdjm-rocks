@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     @employee = User.find_by_employee_num(params[:employee_num])
     if @employee.authenticate(params[:password])
       session[:user_id] = @employee.id
+      redirect_to parts_path
     else
       @errors = "Invalid username or password"
       render :new

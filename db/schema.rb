@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018231539) do
+ActiveRecord::Schema.define(version: 20171019000646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "parts", force: :cascade do |t|
+    t.integer "part_number", null: false
+    t.string "name", null: false
+    t.integer "max_quantity", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
@@ -22,6 +30,21 @@ ActiveRecord::Schema.define(version: 20171018231539) do
     t.string "role", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "warehouses", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "warehouses_parts", force: :cascade do |t|
+    t.bigint "part_id"
+    t.bigint "warehouse_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["part_id"], name: "index_warehouses_parts_on_part_id"
+    t.index ["warehouse_id"], name: "index_warehouses_parts_on_warehouse_id"
   end
 
 end
