@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Part, type: :model do
   let!(:part_example) { Part.new(part_number: 12345, name: 'thruster', max_quantity: 10) }
+  let!(:warehouse1) { Warehouse.create!(name: "timbucktoo") }
+  let!(:warehouse2) { Warehouse.create!(name: "kalamazoo") }
+  let!(:warehouse3) { Warehouse.create!(name: "maryloo") }
+
 
   it 'is valid with a part_number, name, max_quantity' do
     expect(part_example).to be_valid
@@ -25,23 +29,30 @@ RSpec.describe Part, type: :model do
   end
 
   describe "associations" do
-    let!(:warehouse) { Warehouse.new(name: "timbucktoo") }
-
     it "has many warehouses" do
-      part_example.warehouses << warehouse
-      expect(part_example.warehouses).to include warehouse
+      part_example.warehouses << warehouse1
+      expect(part_example.warehouses).to include warehouse1
     end
   end
 
   describe '.overall_total' do
     it "returns total count of parts across warehouses" do
-      warehouse1 = Warehouse.create!(name: "timbucktoo")
-      warehouse2 = Warehouse.create!(name: "kalamazoo")
-      warehouse3 = Warehouse.create!(name: "maryloo")
-      part = Part.create(part_number: 12345, name: 'thruster', max_quantity: 10)
       stored_warehouses = [warehouse1, warehouse2, warehouse3]
-      part.warehouses << stored_warehouses
-      expect(Part.overall_total(part)).to eq(stored_warehouses.length)
+      part_example.warehouses << stored_warehouses
+      part_example.save
+      expect(Part.overall_total(part_example)).to eq(stored_warehouses.length)
+    end
+
+    it 'returns 0 when part is not in any warehouses' do
+      expect(Part.overall_total(part_example)).to eq(0)
+    end
+  end
+
+  describe '.warehouse_total' do
+    it 'returns total count of part in one warehouse' do
+      part_example.warehouses << [warehouse1, warehouse2, warehouse1]
+      part_example.save
+      expect(Part.warehouse_total(warehouse1, part_example)).to eq(2)
     end
   end
 end
