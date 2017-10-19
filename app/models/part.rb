@@ -6,4 +6,9 @@ class Part < ApplicationRecord
   def self.overall_total(part)
     WarehousesPart.where(part_id: part.id).count
   end
+
+  def self.warehouse_total(warehouse, part)
+    parts = WarehousesPart.where('warehouse_id = ? AND part_id = ?', warehouse.id, part.id)
+    parts.count
+  end
 end

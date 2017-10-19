@@ -1,5 +1,9 @@
 class PartsController < ApplicationController
   def index
-    @parts = Part.all
+    if params[:name]
+      @warehouse = Warehouse.find_by(name: params[:name])
+    else
+      @parts = Part.all
+    end
   end
 end
