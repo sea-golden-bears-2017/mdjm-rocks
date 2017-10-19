@@ -1,9 +1,14 @@
 <% if !@warehouse %>
-  <%= form_tag parts_path, method: :get do %>
-    <%= label_tag 'Warehouse Name:' %>&nbsp
-    <%= text_field_tag 'name', nil, placeholder: 'ex. Austin' %>
-    <%= submit_tag 'Find' %>
-  <% end %>
+  <div id="warehouse-search">
+    <%= form_tag parts_path, method: :get do %>
+      <%= label_tag 'Warehouse Name:' %>&nbsp
+      <%= text_field_tag 'name', nil, placeholder: 'ex. Austin' %>
+      <%= submit_tag 'Find' %>
+    <% end %>
+    <div id='search-errors' class='errors'>
+      <%= render 'shared/errors' %>
+    </div>
+  </div>
 <% else %>
   <h3> <%= @warehouse.name %> </h3>
 <% end %>
