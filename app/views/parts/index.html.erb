@@ -8,12 +8,13 @@
     <div id='search-errors' class='errors'>
       <%= render 'shared/errors' %>
     </div>
+    <h1 class="inventory-header">Inventory</h1>
   </div>
 <% else %>
+  <h1 class="inventory-header">Inventory</h1>
   <h3> <%= @warehouse.name %> </h3>
 <% end %>
 
-<h1 class="inventory-header">Inventory</h1>
 
 <table class="inventory-table">
   <tr>
