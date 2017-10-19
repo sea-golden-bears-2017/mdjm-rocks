@@ -1,0 +1,32 @@
+.inventory-table {
+  border: thin black solid;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.inventory-table tr:nth-child(odd) {
+  background: gray;
+}
+
+.inventory-table tr {
+  border: medium black solid
+}
+
+.inventory-header {
+  text-align: center;
+}
+
+.inventory-table td {
+  text-overflow: ellipsis;
+}
+
+.inventory-table .col-1 {
+  min-width: 200px;
+}
+
+.inventory-table th {
+  text-align: left;
+  background: lime;
+}
