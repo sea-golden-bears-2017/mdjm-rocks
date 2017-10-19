@@ -32,4 +32,16 @@ RSpec.describe Part, type: :model do
       expect(part_example.warehouses).to include warehouse
     end
   end
+
+  describe '.overall_total' do
+    it "returns total count of parts across warehouses" do
+      warehouse1 = Warehouse.create!(name: "timbucktoo")
+      warehouse2 = Warehouse.create!(name: "kalamazoo")
+      warehouse3 = Warehouse.create!(name: "maryloo")
+      part = Part.create(part_number: 12345, name: 'thruster', max_quantity: 10)
+      stored_warehouses = [warehouse1, warehouse2, warehouse3]
+      part.warehouses << stored_warehouses
+      expect(Part.overall_total(part)).to eq(stored_warehouses.length)
+    end
+  end
 end
