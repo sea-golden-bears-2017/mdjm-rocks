@@ -19,29 +19,55 @@
   margin-left: auto;
   margin-right: auto;
   width: 80%;
+
+  th {
+    text-align: left;
+    background: $lime;
+  }
+
+  tr {
+    border: medium black solid;
+    &:nth-child(odd) {
+      background: $gray;
+    }
+  }
+
+  td {
+    text-overflow: ellipsis;
+  }
+
+  .col-1 {
+    min-width: 200px;
+  }
 }
 
-.inventory-table tr:nth-child(odd) {
-  background: $gray;
-}
+.flex-container {
+  display: flex;
+  flex-direction: row;
 
-.inventory-table tr {
-  border: medium black solid
-}
+  .smallItem {
+    flex: 1;
+    align-items: flex-start;
+    form {
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+    .warehouse-name {
+      display: inline-block;
+    }
+  }
 
-.inventory-header {
-  text-align: center;
-}
+  .bigItem {
+    flex: 1;
+    text-align: center;
+  }
 
-.inventory-table td {
-  text-overflow: ellipsis;
-}
+  .emptyItem {
+    flex: 1;
+  }
 
-.inventory-table .col-1 {
-  min-width: 200px;
-}
-
-.inventory-table th {
-  text-align: left;
-  background: $lime;
+  .inventory-header {
+    text-align: center;
+    display: inline-block;
+  }
 }
