@@ -13,7 +13,9 @@
 # it.
 require 'simplecov'
 require 'factory_girl'
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do
+  add_filter "application"
+end
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

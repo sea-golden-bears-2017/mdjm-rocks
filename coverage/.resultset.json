@@ -21,12 +21,6 @@
         null,
         null,
         null,
-        1,
-        null,
-        1,
-        0,
-        null,
-        null,
         null
       ],
       "/Users/apprentice/mjdm-rocks/app/controllers/application_controller.rb": [
@@ -70,6 +64,6 @@
         0
       ]
     },
-    "timestamp": 1508372303
+    "timestamp": 1508376009
   }
 }
