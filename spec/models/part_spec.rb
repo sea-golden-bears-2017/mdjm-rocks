@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Part, type: :model do
-  let!(:part_example) { Part.new(part_number: 12345, name: 'thruster', max_quantity: 10) }
-  let!(:warehouse1) { Warehouse.create!(name: "timbucktoo") }
-  let!(:warehouse2) { Warehouse.create!(name: "kalamazoo") }
-  let!(:warehouse3) { Warehouse.create!(name: "maryloo") }
+  let!(:part_example) { build(:part) }
+  let!(:warehouse1) { create(:warehouse, name: "timbucktoo") }
+  let!(:warehouse2) { create(:warehouse, name: "kalamazoo") }
+  let!(:warehouse3) { create(:warehouse, name: "maryloo") }
 
 
   it 'is valid with a part_number, name, max_quantity' do
