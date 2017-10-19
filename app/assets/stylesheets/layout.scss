@@ -1,3 +1,20 @@
 body {
   font-family: sans-serif;
 }
+
+.top-bar {
+  background-color: #0192a5
+}
+
+#company-name{
+  display: inline-block;
+  font-family: "Courier New";
+  font-size: 50px;
+}
+
+#logout{
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  color: white;
+}
