@@ -3,6 +3,6 @@ FactoryGirl.define do
     name "Wilfred"
     employee_num 12345
     password "password"
-    role "engineer"
+    role "manager"
   end
 end

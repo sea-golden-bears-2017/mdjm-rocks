@@ -5,6 +5,35 @@
         1,
         null
       ],
+      "/Users/apprentice/mjdm-rocks/app/controllers/sessions_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        4,
+        4,
+        1,
+        null,
+        3,
+        3,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/apprentice/mjdm-rocks/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null
+      ],
       "/Users/apprentice/mjdm-rocks/app/models/user.rb": [
         1,
         1,
@@ -30,11 +59,6 @@
         0,
         0
       ],
-      "/Users/apprentice/mjdm-rocks/app/controllers/application_controller.rb": [
-        0,
-        0,
-        0
-      ],
       "/Users/apprentice/mjdm-rocks/app/jobs/application_job.rb": [
         0,
         0
@@ -46,6 +70,6 @@
         0
       ]
     },
-    "timestamp": 1508369921
+    "timestamp": 1508372303
   }
 }
