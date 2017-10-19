@@ -15,6 +15,15 @@ ActiveRecord::Schema.define(version: 20171019000646) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "users", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "employee_num", null: false
+    t.string "password_digest", null: false
+    t.string "role", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "parts", force: :cascade do |t|
     t.integer "part_number", null: false
     t.string "name", null: false
