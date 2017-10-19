@@ -21,8 +21,8 @@
     <div class="bigItem">
       <h2 class="inventory-header">Inventory</h2>
     </div>
-      <%= link_to "Add Warehouse", new_warehouse_path %>
-    <div class="emptyItem"></div>
+
+    <div class="emptyItem"><%= link_to "Add Warehouse", new_warehouse_path, class: "new-warehouse-button" %></div>
 
   <% else %>
     <div class="smallItem">
