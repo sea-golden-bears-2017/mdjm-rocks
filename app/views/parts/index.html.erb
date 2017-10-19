@@ -1,9 +1,9 @@
 <% if !@warehouse %>
-  <form action="/parts" method="get">
-    <label>Warehouse Name:&nbsp</label>
-    <input type="text" name="name" placeholder="ex. Austin">
-    <input type="submit" value="Find">
-  </form>
+  <%= form_tag parts_path, method: :get do %>
+    <%= label_tag 'Warehouse Name:' %>&nbsp
+    <%= text_field_tag 'name', nil, placeholder: 'ex. Austin' %>
+    <%= submit_tag 'Find' %>
+  <% end %>
 <% else %>
   <h3> <%= @warehouse.name %> </h3>
 <% end %>
