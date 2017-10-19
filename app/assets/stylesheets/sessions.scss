@@ -1,0 +1,28 @@
+@import "colors";
+
+#login-form-div {
+  padding-top: 20px;
+  width: 30%;
+  margin: auto;
+}
+
+.form-section {
+  padding: 10px;
+  float: right;
+  clear: both;
+}
+
+#tag-line {
+  clear: both;
+  text-align: center;
+  font-size: 1.3em;
+  padding-top: 20px;
+  text-shadow: 0 0 5px $lime;
+}
+
+#login-errors {
+  clear: both;
+  ul {
+    list-style-type: none;
+  }
+}
