@@ -1,5 +1,8 @@
+@import "colors";
+
 input[type=text], input[type=password] {
   padding: 10px;
+  border: 1px solid $lime;
 }
 
 #login-form-div {
