@@ -15,6 +15,9 @@ describe PartsController, type: :controller do
       it 'creates a @warehouse instance variable' do
         expect(assigns[:warehouse]).to eq warehouse
       end
+      it 'creates a parts instance variable' do
+        expect(assigns[:parts]).to eq warehouse.parts.uniq
+      end
     end
   end
 end
