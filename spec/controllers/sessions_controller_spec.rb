@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SessionsController, type: :controller do
+describe SessionsController, type: :controller do
   describe "sessions#new" do
     before(:each) { get :new }
     it "returns ok status" do
