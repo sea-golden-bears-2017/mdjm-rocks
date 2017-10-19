@@ -6,6 +6,10 @@ describe PartsController, type: :controller do
       get :index
       expect(response).to be_ok
     end
+    it 'renders index view' do
+      get :index
+      expect(response).to render_template :index
+    end
     context "when a specific warehouse's parts are requested" do
       let!(:warehouse) {create(:warehouse)}
       let!(:part) {create(:part)}
