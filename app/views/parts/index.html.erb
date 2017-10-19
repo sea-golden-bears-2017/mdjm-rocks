@@ -1,19 +1,36 @@
-<% if !@warehouse %>
-  <div id="warehouse-search">
-    <%= form_tag parts_path, method: :get do %>
-      <%= label_tag 'Warehouse Name:' %>&nbsp
-      <%= text_field_tag 'name', nil, placeholder: 'ex. Austin' %>
-      <%= submit_tag 'Find' %>
-    <% end %>
-    <div id='search-errors' class='errors'>
-      <%= render 'shared/errors' %>
+<div class="flex-container">
+  <% if !@warehouse %>
+  <div class="smallItem">
+    <div id="warehouse-search">
+      <%= form_tag parts_path, method: :get do %>
+        <%= label_tag 'Warehouse Name:' %>&nbsp
+        <%= text_field_tag 'name', nil, placeholder: 'ex. Austin' %>
+        <%= submit_tag 'Find' %>
+      <% end %>
+      <div id='search-errors' class='errors'>
+        <%= render 'shared/errors' %>
+      </div>
+      </div>
     </div>
-    <h1 class="inventory-header">Inventory</h1>
-  </div>
-<% else %>
-  <h1 class="inventory-header">Inventory</h1>
-  <h3> <%= @warehouse.name %> </h3>
-<% end %>
+    <div class="bigItem">
+      <h1 class="inventory-header">Inventory</h1>
+    </div>
+    <div class="emptyItem"></div>
+  <% else %>
+    <div class="smallItem">
+      <h3 class="warehouse-name"> <%= @warehouse.name %> </h3>
+    </div>
+    <div class="bigItem">
+      <h1 class="inventory-header">Inventory</h1>
+    </div>
+    <div class="emptyItem"></div>
+  <% end %>
+</div>
+
+
+
+
+
 
 
 <table class="inventory-table">
