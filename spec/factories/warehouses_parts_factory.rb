@@ -13,7 +13,11 @@ FactoryGirl.define do
     name "Wilfred"
     employee_num 12345
     password "password"
+    warehouse
     role "manager"
-    warehouse { create(:warehouse) }
+    factory :non_manager do
+      role "scientist"
+    end
   end
+
 end
