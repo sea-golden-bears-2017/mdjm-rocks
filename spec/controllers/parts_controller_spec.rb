@@ -4,12 +4,12 @@ describe PartsController, type: :controller do
   let!(:warehouse) {create(:warehouse)}
   let!(:part) {create(:part)}
   describe "parts#index" do
+    let!(:user) {create(:user)}
+    before(:each) { get :index, session: {user_id: user.id}}
     it 'returns ok status' do
-      get :index
       expect(response).to be_ok
     end
     it 'renders index view' do
-      get :index
       expect(response).to render_template :index
     end
     context "when a specific warehouse's parts are requested" do
@@ -23,7 +23,6 @@ describe PartsController, type: :controller do
     end
     context "when companywide parts are requested" do
       it 'creates a @parts index variable which includes all parts' do
-        get :index
         expect(assigns[:parts]).to eq Part.all
       end
     end
