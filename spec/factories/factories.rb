@@ -16,8 +16,11 @@ FactoryGirl.define do
     warehouse
     role "manager"
     factory :non_manager do
+      employee_num 67891
       role "scientist"
     end
   end
+
+
 
 end

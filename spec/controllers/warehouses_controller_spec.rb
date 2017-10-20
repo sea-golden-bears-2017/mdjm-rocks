@@ -1,15 +1,25 @@
 require 'rails_helper'
 
 describe WarehousesController, type: :controller do
+  let!(:manager) {create(:user)}
+  let!(:non_manager) {create(:non_manager)}
   describe '#new' do
-    before(:each) do
-      get :new
+    context "when user is a manager" do
+      before(:each) do
+        get :new, session: {user_id: manager.id}
+      end
+      it 'sets a warehouse instance variable' do
+        expect(assigns[:warehouse]).to be_a Warehouse
+      end
+      it 'returns an OK status' do
+        expect(response).to be_ok
+      end
     end
-    it 'sets a warehouse instance variable' do
-      expect(assigns[:warehouse]).to be_a Warehouse
-    end
-    it 'returns an OK status' do
-      expect(response).to be_ok
+    context "when user is not a manager" do
+      it "renders 404 page" do
+        get :new, session: {user_id: non_manager.id}
+        expect(response).to render_template "shared/404"
+      end
     end
   end
 
