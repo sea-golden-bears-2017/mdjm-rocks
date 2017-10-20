@@ -21,6 +21,15 @@ describe PartsController, type: :controller do
         expect(assigns[:parts]).to eq warehouse.parts.uniq
       end
     end
+    context "when a nonexistent warehouse is requested" do
+      before(:each) { get :index, params: {name: nil}}
+      it 'sets an errors instance variable' do
+        expect(assigns[:errors]).to include "Warehouse doesn't exist"
+      end
+      it 'sets a parts instance variable' do
+        expect(assigns[:parts]).to eq Part.all
+      end
+    end
     context "when companywide parts are requested" do
       it 'creates a @parts index variable which includes all parts' do
         expect(assigns[:parts]).to eq Part.all
