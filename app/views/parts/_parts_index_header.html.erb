@@ -1,0 +1,46 @@
+<div class="flex-container">
+
+  <% if !@warehouse %>
+
+    <div class="smallItem">
+
+      <div id="warehouse-search">
+        <%= form_tag parts_path, method: :get do %>
+        <%= label_tag 'Warehouse Name:' %>&nbsp
+        <%= text_field_tag 'name', nil, placeholder: 'ex. Austin' %>
+        <%= submit_tag 'Find' %>
+        <% end %>
+
+        <div id='search-errors' class='errors'>
+          <%= render 'shared/errors' %>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="bigItem">
+      <h2 class="inventory-header">Inventory</h2>
+    </div>
+
+    <div class="emptyItem">
+      <% if User.find(session[:user_id]).role == "manager" %>
+      <%= link_to "Add Warehouse", new_warehouse_path, class: "new-warehouse-button" %>
+      <% end %>
+    </div>
+
+  <% else %>
+    <div class="smallItem">
+      <h3 class="warehouse-name"> <%= @warehouse.name %> </h3>
+    </div>
+
+    <div class="bigItem">
+      <h2 class="inventory-header">Inventory</h2>
+    </div>
+
+    <div class="emptyItem">
+      <% if User.find(session[:user_id]).role == "manager" %>
+      <%= link_to "Add Warehouse", new_warehouse_path, class: "new-warehouse-button" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

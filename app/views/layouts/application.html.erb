@@ -10,14 +10,19 @@
 
   <body>
     <div class="top-bar">
-      <img id='logo' src="/logo2.png" height="70">
-      <h1 id="company-name">Rutherford Rocket Labs</h1>
+      <a href="/parts"><img id='logo' src="/logo2.png" height="70">
+      <h1 id="company-name">Rutherford Rocket Labs</h1></a>
       <% if session[:user_id] %>
         <%= form_tag session_path(session[:user_id]), method: :delete do %>
           <%= submit_tag 'Logout', id: 'logout' %>
         <% end %>
       <% end %>
     </div>
-    <%= yield %>
+
+    <% if session[:user_id] %>
+      <%= yield %>
+    <% else %>
+      <%= render 'sessions/new' %>
+    <% end %>
   </body>
 </html>

@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019000646) do
+ActiveRecord::Schema.define(version: 20171020014323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "orderer_id"
+    t.integer "receiver_id"
+    t.datetime "received_date"
+    t.boolean "submitted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders_parts", force: :cascade do |t|
+    t.integer "quantity_ordered"
+    t.integer "quantity_received"
+    t.bigint "part_id"
+    t.bigint "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_orders_parts_on_order_id"
+    t.index ["part_id"], name: "index_orders_parts_on_part_id"
+  end
 
   create_table "parts", force: :cascade do |t|
     t.integer "part_number", null: false
@@ -30,6 +50,7 @@ ActiveRecord::Schema.define(version: 20171019000646) do
     t.string "role", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "warehouse_id"
   end
 
   create_table "warehouses", force: :cascade do |t|
@@ -47,4 +68,5 @@ ActiveRecord::Schema.define(version: 20171019000646) do
     t.index ["warehouse_id"], name: "index_warehouses_parts_on_warehouse_id"
   end
 
+  add_foreign_key "users", "warehouses"
 end
