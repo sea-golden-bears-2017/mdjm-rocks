@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019000646) do
+ActiveRecord::Schema.define(version: 20171020014323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20171019000646) do
     t.string "role", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "warehouse_id"
   end
 
   create_table "warehouses", force: :cascade do |t|
@@ -47,4 +48,5 @@ ActiveRecord::Schema.define(version: 20171019000646) do
     t.index ["warehouse_id"], name: "index_warehouses_parts_on_warehouse_id"
   end
 
+  add_foreign_key "users", "warehouses"
 end
