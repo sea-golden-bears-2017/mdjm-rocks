@@ -4,4 +4,6 @@ class User < ApplicationRecord
   validates :employee_num, uniqueness: true
   belongs_to :warehouse
   has_secure_password
+
+  
 end
